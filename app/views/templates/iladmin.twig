@@ -22,7 +22,22 @@
             <td>{{ item.name }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.cost }}</td>
+            <td>
+                    <form action = "/updatecost" method="POST">
+                        <button class="btn btn-outline-warning">Update Cost</button>
+                        <input type="hidden" name="iditem" value="{{ item.id }}">
+                        <input type="number" name="newcost" placeholder="Enter new cost">
+                    </form>
+            </td>
             <td>{{ item.qavail }}</td>
+            <td>
+                    <form action = "/updatequant" method="POST">
+                        <button class="btn btn-outline-warning">Update Quantity</button>
+                        <input type="hidden" name="iditem" value="{{ item.id }}">
+                        <input type="number" name="newquant" placeholder="Enter new Quantity">
+                    </form>
+                    </td>
+
 
         </tr>
         {% endfor %}
