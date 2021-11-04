@@ -1,0 +1,18 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/home.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<h1>CENTRAL MARKET</h1>
+<h2>Welcomes You!!</h2>
+
+<div class="flex-container">
+    <div><a href="/signin"><button class="btn btn-block btn-lg btn-secondary" type="submit">SIGN  IN</button></a></div>
+    <div><a href="/signup"><button class="btn btn-block btn-lg btn-secondary" type="submit">SIGN  UP</button></a></div>
+</div>
+<div><a href="/admin"><button class="btn btn-block btn-lg btn-secondary" type="submit">ADMIN PORTAL</button></a></div>
+
+{% endblock %}

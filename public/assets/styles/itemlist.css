@@ -1,0 +1,41 @@
+body {
+    background-color: #7952B3;
+}
+h1 {
+    font-size: 3rem;
+    margin: 30px auto;
+}
+h3 {
+    position: fixed;
+    bottom: 10px;
+    color: grey;
+    margin: 10px auto 10px 30px;
+}
+td,th {
+    text-align: center;
+}
+.logout-form {
+    height: 25px;
+}
+.logout-btn {
+    position: relative;
+    bottom: 25px;
+    right: 10px;
+}
+.btn {
+    margin: 5px;
+}
+.table {
+    width: 80%;
+}
+.remove {
+    width: auto;
+}
+.total {
+    width: 400px;
+}
+#email {
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #E1E8EB;
+}

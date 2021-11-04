@@ -1,0 +1,11 @@
+{
+    "name": "bashar/market",
+    "description": "Market Registration And Management System",
+    "require": {
+        "torophp/torophp": "dev-master",
+        "twig/twig": "^3.0"
+    },
+    "autoload": {
+        "classmap": ["app"]
+    }
+}

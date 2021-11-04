@@ -1,0 +1,34 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/sign.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<h1>CENTRAL MARKET</h1>
+
+<main class="form-signin">
+    <form action="/additem" method="POST">
+        <h1 class="h3 mb-3 fw-normal">ADD ITEM</h1>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Name" name="name">
+            <label for="floatingInput"  >Item Name</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingPassword" placeholder="Category" name="category">
+            <label for="floatingPassword">Category</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Cost" name="cost">
+            <label for="floatingInput" >Cost</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Quantity" name="qavail">
+            <label for="floatingInput" >Quantity</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-dark" type="submit">ADD</button>
+    </form>
+</main>
+
+{% endblock %}

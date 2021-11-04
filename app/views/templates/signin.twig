@@ -1,0 +1,28 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/sign.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<h1>CENTRAL MARKET</h1>
+
+<main class="form-signin">
+    <form action="/signin" method="POST">
+        <h1 class="h3 mb-3 fw-normal">SIGN IN</h1>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+            <label for="floatingInput"  >Email address</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-dark" type="submit" onclick="disp()">Sign in</button>
+    </form>
+</main>
+
+<h1 id="msg">{% if incorrectPassword %}Incorrect Password!!{% endif %}</h1>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+body {
+  background-image: url('../images/market1.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin: 0;
+}
+h1 {
+  margin-top: 230px;
+  font-size: 5rem;
+}
+h1,h2 {
+  color: #6B4F4F;
+}
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.flex-container>div {
+  width: 250px;
+  margin: 30px;
+}  
+.btn {
+  margin: 30px 0;
+  width: 200px;
+}
+form {
+  margin: auto 40px;
+}
+.admin {
+  width: 500px;
+}
