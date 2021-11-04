@@ -16,4 +16,16 @@ class Item {
         $stmt->execute([$itemid]);
     }
 
+
+    public static function costupdate($iditem,$newcost){
+        $db = \DB::get_instance();        
+        $stmt=$db->prepare("UPDATE items SET cost = ? WHERE id = ?");
+        $stmt->execute([$newcost,$iditem]);
+    }
+
+    public static function quantupdate($iditem,$newquant){
+        $db = \DB::get_instance();
+        $stmt=$db->prepare("UPDATE items SET qavail = ? WHERE id = ?");
+        $stmt->execute([$newquant,$iditem]);
+    }
 }
