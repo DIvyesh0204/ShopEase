@@ -39,3 +39,14 @@ td,th {
     border-radius: 3px;
     background-color: #E1E8EB;
 }
+
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flex-container>div{
+    margin:30px;
+    width:150px;
+}
+
