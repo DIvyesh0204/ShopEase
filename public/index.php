@@ -18,5 +18,6 @@ Toro::serve(array(
     "/payment"=>"Controller\Payment",
     "/redirect"=>"Controller\Redirect",
     "/updatecost"=>"Controller\Updatecost",
-    "/updatequant"=>"Controller\Updatequant"
+    "/updatequant"=>"Controller\Updatequant",
+    "/removefromcart"=>"Controller\Removefromcart"
 ));
