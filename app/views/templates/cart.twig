@@ -26,8 +26,9 @@
             <th>Item ID</th>
             <th>Item Name</th>
             <th>Category</th>
-            <th>Cost</th>
+            <th>Cost(per Kg)</th>
             <th>Requested Quantity</th>
+            <th>Remove from cart</th>
         </tr>
         {% set total=0 %}
         {% for item in items %}
@@ -37,9 +38,13 @@
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.category }}</td>
-            <td>{{ item.cost }}</td>
+            <td>₹ {{ item.cost }}</td>
             <td>{{ item.qreq }}</td>
-
+            <td>
+            <form action="/removefromcart" method="POST">
+                <button class="btn btn-danger">Remove from cart</button>
+                <input type="hidden" name="iditem" value="{{ item.id }}">
+            </td>
         </tr>
         {% endif %}
         {% endfor %}
@@ -49,9 +54,11 @@
     </table>
     <table class="table total table-dark">
         <tr>
-            <td>Total Cost : {{total}}</td>
+            <td>Total Cost : ₹ {{total}}</td>
         </tr>
     </table>
-
-    <a href="/payment"><button class="btn btn-lg btn-warning">Place Order</button></a>
+<div class= "flex-container">
+ <div>   <a href="/itemlist-user"><button class="btn btn-lg btn-primary" style = "height:80px">Go back</button></a></div>
+  <div>  <a href="/payment"><button class="btn btn-lg btn-warning">Place Order</button></a></div>
+</div>    
 {% endblock %}

@@ -26,7 +26,7 @@
             <th>Item ID</th>
             <th>Item Name</th>
             <th>Category</th>
-            <th>Cost</th>
+            <th>Cost(per Kg)</th>
             <th>Quantity Available</th>
             <th>Add to Cart</th>
         </tr>
@@ -36,13 +36,13 @@
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.category }}</td>
-            <td>{{ item.cost }}</td>
+            <td> ₹ {{ item.cost }}</td>
             <td>{{ item.qavail }}</td>
                 
             {% if item.qavail>0%}
                 <td>
                     <form action="/itemlist-user" method="POST">
-                        <button class="btn btn-outline-warning">Add to Cart</button>
+                        <button class="btn btn-primary">Add to Cart</button>
                         <input type="hidden" name="iditem" value="{{ item.id }}">
                         <input type="number" name="qreq" placeholder="Enter Quantity">
                     </form>
