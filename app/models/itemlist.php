@@ -41,4 +41,9 @@ class Itemlist {
         $stmt->execute([$qreq,$itemid]);
     }
 
+    public static function rm_cart($itemid){
+        $db = \DB::get_instance();   
+        $stmt=$db->prepare("UPDATE items SET qreq = 0 WHERE id = ?");
+        $stmt->execute([$itemid]);
+    }
 }
