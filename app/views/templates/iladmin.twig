@@ -23,7 +23,7 @@
             <td>{{ item.id }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.category }}</td>
-            <td>{{ item.cost }}</td>
+            <td>₹ {{ item.cost }}</td>
             <td>
                     <form action = "/updatecost" method="POST">
                         <button class="btn btn-outline-warning">Update Cost</button>
@@ -38,7 +38,8 @@
                         <input type="hidden" name="iditem" value="{{ item.id }}">
                         <input type="number" name="newquant" placeholder="Enter new Quantity">
                     </form>
-                    </td>
+            </td>
+
 
 
         </tr>
@@ -48,7 +49,7 @@
     
     <a href="/additem"><button class="btn btn-lg btn-warning">ADD ITEM</button></a>
 
-    <table class="table remove table-dark">
+    <table class="table remove table-dark abc">
         <tr>
             <td>
                 <form action="/remove" method="POST">
@@ -56,9 +57,12 @@
                     <input type="text" name="itemid">
                     <button class="btn btn-lg btn-outline-warning">REMOVE ITEM</button>
                 </form>
+            
             </td>
         </tr>
     </table>
+
+    <div class = "abc"><a href ="/purchasehistory"><button class="btn btn-lg btn-primary">View purchase history</button></a></div>
 
 <form action="/" method="POST"><button class="btn btn-dark btn-lg logout">BACK TO HOME</button></form>
 

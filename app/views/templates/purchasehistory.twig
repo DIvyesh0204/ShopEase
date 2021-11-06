@@ -1,0 +1,42 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/payment.css"{% endblock %}
+
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<h1>CENTRAL MARKET</h1>
+
+<h2>Enter the time period within which you want to view purchase history<h2>
+        <form action="/purchasehistory" method="POST">
+                            
+                            <div class="form-group mb-3">
+                                <label for="" class = "inp">From</label>
+                                <input type="datetime-local" name="from" class="form-control inx " value = "2021-11-03T12:00">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="" class = "inp">Till</label>
+                                <input type="datetime-local" name="till" class="form-control inx" id = "cal">
+                            </div>
+                            <div class="form-group mb-3">
+            <button type="submit" name="save_datetime" class="btn btn-lg btn-primary" >View history</button>
+                            </div>
+        </form>
+        <h3> By default,you can see complete history of purchases till now just on clicking on the above button </h3>
+          <div>  <a href="/itemlist-admin"><button class="btn btn-lg btn-warning" style="width:150px">Back</button></a></div>    
+    
+
+    <script>
+
+      window.addEventListener('load', () => {
+      const now = new Date();
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      now.setMilliseconds(null);
+      now.setSeconds(null);
+      document.getElementById('cal').value = now.toISOString().slice(0, -1);
+    });
+
+    </script>
+{% endblock %}

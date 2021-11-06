@@ -1,0 +1,47 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/itemlist.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<h1>CENTRAL MARKET</h1>
+
+    <h2> Purchase history in the entered time-frame </h2>
+    <table class="table table-dark tab" border="1">
+        <tr>
+            <th> User ID </th>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Quantity purchased</th>
+            <th>Cost of purchase</th>
+            <th>Time of purchase</th>
+        </tr>
+
+
+        {% set total=0 %}
+        {% for order in purchaselist %}
+
+        {% set total = total + order.purchase_cost %}
+        <tr>
+            <td>{{ order.userid }}</td>
+            <td>{{ order.itemid }}</td>
+            <td>{{ order.itemname }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>₹ {{order.purchase_cost}}</td>
+            <td>{{order.purchase_time}}</td>
+
+        </tr>
+
+        {% endfor %}
+        </table>
+        <table class="table total table-dark">
+        <tr>
+            <td>Total Purchase amount : ₹ {{total}}</td>
+        </tr>
+        </table>
+
+ <div>   <a href="/itemlist-admin"><button class="btn btn-lg btn-primary" style="margin:50px auto" >Go to admin page</button></a></div>
+  <div>  <a href="/purchasehistory"><button class="btn btn-lg btn-warning">Go Back</button></a></div>
+{% endblock %}

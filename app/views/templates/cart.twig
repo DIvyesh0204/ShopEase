@@ -26,7 +26,7 @@
             <th>Item ID</th>
             <th>Item Name</th>
             <th>Category</th>
-            <th>Cost(per Kg)</th>
+            <th>Cost</th>
             <th>Requested Quantity</th>
             <th>Remove from cart</th>
         </tr>
@@ -45,6 +45,7 @@
                 <button class="btn btn-danger">Remove from cart</button>
                 <input type="hidden" name="iditem" value="{{ item.id }}">
             </td>
+            </form>
         </tr>
         {% endif %}
         {% endfor %}

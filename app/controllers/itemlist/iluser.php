@@ -23,7 +23,9 @@ class ILUser {
         // echo $qreq;
         if($qavail>=$qreq&&$qreq>0) {
             \Model\Itemlist::update_qreq($qreq,$itemid);
+            
         }
+        
         header("Location: /itemlist-user");
     }
 
