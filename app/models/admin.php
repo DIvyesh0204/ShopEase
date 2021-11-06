@@ -2,6 +2,7 @@
 
 namespace Model;
 
+Use \DateTime;
 class Item {
 
     public static function add($name,$category,$cost,$qavail) {
@@ -27,5 +28,17 @@ class Item {
         $db = \DB::get_instance();
         $stmt=$db->prepare("UPDATE items SET qavail = ? WHERE id = ?");
         $stmt->execute([$newquant,$iditem]);
+    }
+    public static function updatelog(){
+        $db = \DB::get_instance();        
+        $stmt=$db->prepare("SELECT * FROM items where qreq > 0 ");
+        $stmt->execute();
+        $rows=$stmt->fetchAll();   
+        foreach($rows as $i){
+        $dx = \DB::get_instance();
+        $stmt=$dx->prepare("INSERT INTO purchasehistory (userid,itemid,itemname,quantity,purchase_cost) VALUES (?,?,?,?,?)"); 
+        $stmt->execute([$_SESSION["id"],$i[0],$i[1],$i[5],$i[5]*$i[2]]);         
+        }
+
     }
 }

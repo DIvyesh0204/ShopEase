@@ -46,4 +46,16 @@ class Itemlist {
         $stmt=$db->prepare("UPDATE items SET qreq = 0 WHERE id = ?");
         $stmt->execute([$itemid]);
     }
+
+    public static function get_purchist($from,$till){
+        
+       $db = \DB::get_instance();
+       $stmt = $db->prepare("SELECT * from purchasehistory WHERE purchase_time BETWEEN ? AND ?");
+        // echo $from;
+        // echo $till;
+        $stmt->execute([$from,$till]);
+        $rows = $stmt->fetchAll();
+        // echo $rows[0][0];
+        return $rows;
+    }
 }
