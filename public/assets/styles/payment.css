@@ -42,3 +42,12 @@ html,body {
   .btn:hover {
     background-color: grey;
   }
+
+  .inp{
+    margin-top: 50px;
+  }
+
+  .inx{
+    width: 30%;
+    margin-top: 20px;
+  }
