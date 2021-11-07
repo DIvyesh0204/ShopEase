@@ -6,24 +6,25 @@
 
 {% block body1 %}
 
-<h1>CENTRAL MARKET</h1>
+
+<h1><span class="iconify" data-icon="ps:cart-supermarket" style="color: #5cb85c;" data-width="35" data-height="35"></span> &nbsp;CENTRAL MARKET</h1>
 
 <main class="form-payment">
     <form action="/redirect" method="POST">
         <h1 class="h3 mb-3 fw-normal"> Enter your Details to continue with the Payment</h1>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="+91 9999999999" name="contactnumber">
+            <input type="password" class="form-control rounded" id="floatingPassword" placeholder="+91 9999999999" name="contactnumber">
             <label for="floatingPassword">Contact Number</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="1234 5678 435678" name="cardnumber">
+            <input type="password" class="form-control rounded" id="floatingPassword" placeholder="1234 5678 435678" name="cardnumber">
             <label for="floatingPassword">Card Number</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="MM/YYYY" name="expiry">
+            <input type="password" class="form-control rounded" id="floatingPassword" placeholder="MM/YYYY" name="expiry">
             <label for="floatingPassword">Expiry</label>
         </div>
-        <button class="w-100 btn btn-lg btn-dark" type="submit">PAY</button>
+        <button class="w-100 btn btn-outline-success rounded pill" type="submit">PAY</button>
     </form>
 </main>
 

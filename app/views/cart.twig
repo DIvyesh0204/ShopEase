@@ -1,0 +1,68 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/itemlist.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<nav class="navbar navbar-dark bg-success" style="padding: 10px;">
+
+    <li class="nav-item" style="list-style-type: none;">
+        <span id="email"><span class="iconify" data-icon="carbon:user-avatar-filled" data-width="25" data-height="25"></span> &nbsp; Logged in as : <span>{{ email }}</span></span>
+    </li>
+    <li class="nav-item" style="list-style-type: none; color:white;">
+        <span class="iconify" data-icon="ps:cart-supermarket" style="color: white;" data-width="25" data-height="25"></span> &nbsp; Central Market
+    </li>
+    <li class="nav-item" style="list-style-type: none;">
+        <form action="/" method="POST" class="logout-form">
+            <button class="btn btn-danger logout-btn rounded-pill" style="margin-top:15px;">LOGOUT<span class="iconify" data-icon="dashicons:exit" data-width="25" data-height="25"></span></button>
+        </form>
+    </li>
+
+</nav>
+
+<h1>Shopping Cart</h1>
+
+    <table class="table table-light table-striped" border="1">
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Cost</th>
+            <th>Requested Quantity</th>
+            <th>Remove from cart</th>
+        </tr>
+        {% set total=0 %}
+        {% for item in items %}
+        {% set total = total + item.qreq * item.cost %}
+        {% if item.qreq>0 %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td>₹ {{ item.cost }}</td>
+            <td>{{ item.qreq }}</td>
+            <td>
+            <form action="/removefromcart" method="POST">
+                <button class="btn btn-outline-danger rounded-pill">Remove from cart</button>
+                <input type="hidden" name="iditem" value="{{ item.id }}">
+            </td>
+            </form>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        
+        
+
+    </table>
+    <table class="table total table-light">
+        <tr>
+            <td class="text-primary border border-primary rounded">Total Cost : ₹ {{total}}</td>
+        </tr>
+    </table>
+<div class= "flex-container">
+ <div>   <a href="/itemlist-user"><button class="btn btn-lg btn-outline-primary rounded-pill">Go back<span class="iconify" data-icon="akar-icons:arrow-back-thick" data-width="25" data-height="25"></span></button></a></div>
+  <div>  <a href="/payment"><button class="btn btn-lg btn-outline-warning rounded-pill">Place Order<span class="iconify" data-icon="icon-park-outline:transaction-order" data-width="25" data-height="25"></span></button></a></div>
+</div>    
+{% endblock %}

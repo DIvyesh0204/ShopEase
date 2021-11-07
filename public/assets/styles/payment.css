@@ -2,13 +2,11 @@ html,body {
     height: 100%;
   }
   body {
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #f5f5f5;
+ 
   }
   h1 {
     margin: 25px auto;
+    color: #5cb85c;
   }
   #msg {
     color: red;
@@ -39,9 +37,7 @@ html,body {
   .btn {
     margin: 30px 0;
   }
-  .btn:hover {
-    background-color: grey;
-  }
+
 
   .inp{
     margin-top: 50px;

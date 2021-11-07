@@ -1,9 +1,11 @@
 body {
-    background-color: #7952B3;
+ 
 }
+
 h1 {
     font-size: 3rem;
     margin: 30px auto;
+    color:  #5cb85c ;
 }
 h3 {
     position: fixed;

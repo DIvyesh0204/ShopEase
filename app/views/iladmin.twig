@@ -1,0 +1,85 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/itemlist.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+
+<nav class="navbar navbar-dark bg-success" style="padding: 10px;">
+
+    <li class="nav-item" style="list-style-type: none;">
+        <span id="email"><span class="iconify" data-icon="carbon:user-avatar-filled" data-width="25" data-height="25"></span> &nbsp; Logged in as : Admin</span>
+    </li>
+
+    <li class="nav-item" style="list-style-type: none; color:white;">
+        <span class="iconify" data-icon="ps:cart-supermarket" style="color: white;" data-width="25" data-height="25"></span> &nbsp; Central Market
+    </li>
+    <li class="nav-item" style="list-style-type: none;">
+        <form action="/" method="POST"><button class="btn btn-danger rounded-pill ">BACK TO HOME <span class="iconify" data-icon="dashicons:exit" data-width="25" data-height="25"></span></button></form>
+    </li>
+
+</nav>
+
+<h1>Admin Portal</h1>
+    <table class="table table-light" border="1">
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Cost</th>
+            <th>Update Cost</th>
+            <th>Available Quantity</th>
+            <th>Update quantity</th>
+        </tr>
+        
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td>₹ {{ item.cost }}</td>
+            <td>
+                    <form action = "/updatecost" method="POST">
+                        <button class="btn btn-outline-warning rounded-pill">Update Cost</button>
+                        <input type="hidden" name="iditem" value="{{ item.id }}">
+                        <input type="number" name="newcost" placeholder="Enter new cost">
+                    </form>
+            </td>
+            <td>{{ item.qavail }}</td>
+            <td>
+                    <form action = "/updatequant" method="POST">
+                        <button class="btn btn-outline-warning rounded-pill">Update Quantity</button>
+                        <input type="hidden" name="iditem" value="{{ item.id }}">
+                        <input type="number" name="newquant" placeholder="Enter new Quantity">
+                    </form>
+            </td>
+
+
+
+        </tr>
+        {% endfor %}
+            
+    </table>
+    
+    <a href="/additem"><button class="btn btn-lg btn-outline-success rounded-pill">ADD ITEM</button></a>
+
+    <table class="table remove table-light abc">
+        <tr>
+            <td>
+                <form action="/remove" method="POST">
+                    <label for="floatingText">Item ID to Remove : </label>
+                    <input type="text" name="itemid">
+                    <button class="btn btn-outline-warning rounded-pill">REMOVE ITEM</button>
+                </form>
+            
+            </td>
+        </tr>
+    </table>
+
+    <div class = "abc"><a href ="/purchasehistory"><button class="btn btn-lg btn-outline-primary">View purchase history</button></a></div>
+
+<form action="/" method="POST"><button class="btn btn-outline-danger rounded-pill btn-lg ">BACK TO HOME <span class="iconify" data-icon="dashicons:exit" data-width="25" data-height="25"></span></button></form>
+
+{% endblock %}

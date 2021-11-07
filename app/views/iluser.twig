@@ -1,0 +1,65 @@
+{% extends "templates/base.twig" %}
+
+{% block css1 %}"/assets/styles/itemlist.css"{% endblock %}
+
+{% block title1 %}CENTRAL MARKET{% endblock %}
+
+{% block body1 %}
+
+<nav class="navbar navbar-dark bg-success" style="padding: 10px;">
+
+    <li class="nav-item" style="list-style-type: none;">
+        <span id="email"><span class="iconify" data-icon="carbon:user-avatar-filled" data-width="25" data-height="25"></span> &nbsp; Logged in as : <span>{{ email }}</span></span>
+    </li>
+    <li class="nav-item" style="list-style-type: none; color:white;">
+        <span class="iconify" data-icon="ps:cart-supermarket" style="color: white;" data-width="25" data-height="25"></span> &nbsp; Central Market
+    </li>
+    <li class="nav-item" style="list-style-type: none;">
+        <form action="/" method="POST" class="logout-form">
+            <button class="btn btn-danger logout-btn rounded-pill" style="margin-top:15px;">LOGOUT<span class="iconify" data-icon="dashicons:exit" data-width="25" data-height="25"></span></button>
+        </form>
+    </li>
+
+</nav>
+<div class="d-flex justify-content-end">
+    <h1>Items List</h1>
+     <a href="/cart"><button class="btn btn-lg btn-warning rounded-pill" style="margin-top:40px; margin-right:30px;">Go to Cart <span class="iconify" data-icon="ps:cart-supermarket" data-width="25" data-height="25"></span></button></a>
+</div>
+
+
+    <table class="table table-light table-striped" border="1">
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Cost</th>
+            <th>Quantity Available</th>
+            <th>Add to Cart</th>
+        </tr>
+        
+        {% for item in items %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.category }}</td>
+            <td> ₹ {{ item.cost }}</td>
+            <td>{{ item.qavail }}</td>
+                
+            {% if item.qavail>0%}
+                <td>
+                    <form action="/itemlist-user" method="POST">
+                        <button class="btn btn-outline-primary rounded-pill">Add to Cart</button>
+                        <input type="hidden" name="iditem" value="{{ item.id }}">
+                        <input type="number" name="qreq" placeholder="Enter Quantity">
+                    </form>
+                </td>
+            {% else %}
+                <td></td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

@@ -6,10 +6,10 @@
 
 {% block body1 %}
 
-<h1>CENTRAL MARKET</h1>
+<h1><span class="iconify" data-icon="ps:cart-supermarket" style="color: #5cb85c;" data-width="35" data-height="35"></span> &nbsp;CENTRAL MARKET</h1>
 
     <h2> Purchase history in the entered time-frame </h2>
-    <table class="table table-dark tab" border="1">
+    <table class="table table-light tab" border="1">
         <tr>
             <th> User ID </th>
             <th>Item ID</th>
@@ -36,7 +36,7 @@
 
         {% endfor %}
         </table>
-        <table class="table total table-dark">
+        <table class="table total table-light border border-primary">
         <tr>
             <td>Total Purchase amount : ₹ {{total}}</td>
         </tr>
