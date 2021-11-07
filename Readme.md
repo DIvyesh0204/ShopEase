@@ -2,8 +2,8 @@ Run the following commands in your terminal to setup the project
 
 _You must have the LAMP installed on your system_
 
-1.  >git clone https://github.com/Bashar-Ahmed/Market.git
-2.  >cd Market
+1.  >git clone https://github.com/DIvyesh0204/Shopping-market.git
+2.  >cd Shopping-Market
 3.  >bash run.sh
 
     This will install composer,<br>
